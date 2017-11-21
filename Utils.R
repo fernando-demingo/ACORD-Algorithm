@@ -42,15 +42,13 @@ iterate_rule <- function(expression, g) {
   solution <- FALSE
   derivationlist <- list()
   first_NT <- expression[grep ("<[[:alnum:]]+>", expression)[1]]
-  if (is.null(first_NT[[1]])) {
-    ##---- non_terminal NOT found ----
+  if (is.null(first_NT[[1]])) ##---- non_terminal NOT found
     solution <- TRUE
-  } else {
+  else {
     rule <- findRule(g, first_NT)
-    if (is.null(rule)) {
-      #---- not rule found for expression ",unlist(expression),"\n"))
+    if (is.null(rule)) ##---- rule NOT found for expression
       stop <- TRUE
-    } else {
+    else {
       idx <- sample(1:length(rule), 1)
       expression <- apply_rule(expression, rule, idx, first_NT)
       datos <- data.frame(idx, first_NT, rule[idx] )
