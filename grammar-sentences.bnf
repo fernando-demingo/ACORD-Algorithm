@@ -1,0 +1,7 @@
+<sentence> ::= <subject> <predicate>
+<subject> ::= <article> <noun>
+<predicate> ::= <verb> <directobject>
+<directobject> ::= <article> <noun>
+<article> ::= THE | A
+<noun> ::= MAN | DOG
+<verb> ::= BITES | PETS
