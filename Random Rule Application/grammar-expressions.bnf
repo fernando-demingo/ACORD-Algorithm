@@ -1,0 +1,4 @@
+<sentence> ::= if <expr>  return <expr>  else return <value>
+<expr> ::= ( <expr> <op> <expr> ) | <value>
+<op> ::= + | - | * | / 
+<value> ::= X | Y | Z
