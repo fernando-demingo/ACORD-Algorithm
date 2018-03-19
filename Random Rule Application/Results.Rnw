@@ -14,17 +14,17 @@
 \caption{BNF grammar: Random Rule Application.}
 \label{}
 \verbatiminput{grammar-sentences.bnf}
-<<echo=FALSE>>=
+\begin{tabular}{|l|} \hline
+<<echo=FALSE, results=tex>>=
 source("Utils.R")
 source("RandomDerivation.R")
 result <- procressGrammarRandom("grammar-sentences.bnf",15)
 
-cat("Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")" )
-#cat("Result: ", solution )
-cat(result$expression)
+cat("{\\tt Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")} \\\\" )
+cat("{\\tt ", result$expression, "} ")
 @
+\\ \hline
 
-\begin{tabular}{l}
 <<echo=FALSE, results=tex>>=
 for(rule in result$derivation_list) {
   cat("{\\tt ")
@@ -32,6 +32,7 @@ for(rule in result$derivation_list) {
   cat(" } \\\\ ")
 }
 @
+\hline
 \end{tabular}
 \end{table}
 
@@ -40,17 +41,17 @@ for(rule in result$derivation_list) {
 \caption{BNF grammar: Random Rule Application.}
 \label{}
 \verbatiminput{grammar.bnf}
-<<echo=FALSE>>=
+\begin{tabular}{|l|} \hline
+<<echo=FALSE, results=tex>>=
 source("Utils.R")
 source("RandomDerivation.R")
-result <- procressGrammarRandom("grammar.bnf",10)
+result <- procressGrammarRandom("grammar.bnf",15)
 
-cat("Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")" )
-#cat("Result: ", solution )
-cat(result$expression)
+cat("{\\tt Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")} \\\\" )
+cat("{\\tt ", result$expression, "} ")
 @
+\\ \hline
 
-\begin{tabular}{l}
 <<echo=FALSE, results=tex>>=
 for(rule in result$derivation_list) {
   cat("{\\tt ")
@@ -58,6 +59,7 @@ for(rule in result$derivation_list) {
   cat(" } \\\\ ")
 }
 @
+\hline
 \end{tabular}
 \end{table}
 
