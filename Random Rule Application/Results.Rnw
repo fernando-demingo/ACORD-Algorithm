@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{verbatim}
+\usepackage{svg}
+
+
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+
+\begin{table}
+\caption{BNF grammar: Random Rule Application.}
+\label{}
+\verbatiminput{grammar-sentences.bnf}
+<<echo=FALSE>>=
+source("Utils.R")
+source("RandomDerivation.R")
+result <- procressGrammarRandom("grammar-sentences.bnf",15)
+
+cat("Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")" )
+#cat("Result: ", solution )
+cat(result$expression)
+@
+
+\begin{tabular}{l}
+<<echo=FALSE, results=tex>>=
+for(rule in result$derivation_list) {
+  cat("{\\tt ")
+  cat( as.vector(rule$Antecedent), " ::= ", as.vector(rule$Consequent))
+  cat(" } \\\\ ")
+}
+@
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\caption{BNF grammar: Random Rule Application.}
+\label{}
+\verbatiminput{grammar.bnf}
+<<echo=FALSE>>=
+source("Utils.R")
+source("RandomDerivation.R")
+result <- procressGrammarRandom("grammar.bnf",10)
+
+cat("Result: ", result$resultado[[3]], " ( Number of applied rules: ",result$rules_applications, ")" )
+#cat("Result: ", solution )
+cat(result$expression)
+@
+
+\begin{tabular}{l}
+<<echo=FALSE, results=tex>>=
+for(rule in result$derivation_list) {
+  cat("{\\tt ")
+  cat( as.vector(rule$Antecedent), " ::= ", as.vector(rule$Consequent))
+  cat(" } \\\\ ")
+}
+@
+\end{tabular}
+\end{table}
+
+\end{document}
