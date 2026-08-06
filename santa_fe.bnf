@@ -1,0 +1,4 @@
+<code> ::= <line> | <line> <code>
+<line> ::= <condition> | <action>
+<condition> ::= ifFoodAhead { <code> } else { <code> }
+<action> ::= move | left | right
